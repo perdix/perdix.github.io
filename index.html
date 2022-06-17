@@ -3,85 +3,70 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
-	<title>Personal Website of Paul Opitz</title>
+	<title>Full Stack Web Engineer - Paul Opitz</title>
 </head>
 <body>
-	<div class="background"></div>
-	<div class="foil"></div>
-	<div class="wrapper">
-		<main>
-			<div>
+
+	<div class="wrapper" id="wrapper"></div>
+
+	<main>
 			<h1>Paul Opitz</h1>
-			<h2>👨‍💻 Full Stack Web Engineer</h2>
-			<h2>👨‍🏫 Computer Science Teacher</h2>
-			<p>With ❤️ for clean APIs and elegance in code and design</p>
-			<ul>
-				<li><a href="https://github.com/perdix/">Github</a></li>
-				<li><a href="html-course.html">HTML&nbsp;&&nbsp;CSS&nbsp;Course</a></li>
-				<!--<li><a href="js-course.html">JavaScript&nbsp;Course</a></li>-->
-			</ul>
-			</div>
-			<!--<h2 id="news">News & Thoughts</h2>-->
-			<h3 id="info"><span class="material-icons-outlined">location_on</span>Shkoder/Albania</h3>
-		</main>
-
-		<!--
-		<section id="articles">
-			<article style="grid-column: span 2;">
-				<div class="text">
-					<h1>Ein Title</h1>
-					<p>Das ist eine Beschreibung</p>
-				</div>
-			</article>
-			<article>
-				<div class="text">
-					<h1>Ein Title</h1>
-					<p>Das ist eine Beschreibung</p>
-				</div>
-			</article>
-			<article>
-				<div class="text">
-					<h1>Ein Title</h1>
-					<p>Das ist eine Beschreibung</p>
-				</div>
-			</article>
-			<article style="grid-column: span 3; grid-row: span 2;">
-				<div class="text">
-					<h1>Ein Title1</h1>
-					<p>Das ist eine Beschreibung</p>
-				</div>
-			</article>
-			<article>
-				<div class="text">
-					<h1>Ein Title</h1>
-					<p>Das ist eine Beschreibung</p>
-				</div>
-			</article>
-			<article>
-				<div class="text">
-					<h1>Ein Title</h1>
-					<p>Das ist eine Beschreibung</p>
-				</div>
-			</article>
-			<article>
-				<div class="text">
-					<h1>Ein Title</h1>
-					<p>Das ist eine Beschreibung</p>
-				</div>
-			</article>
-			<article style="grid-column: span 3;">
-				<div class="text">
-					<h1>Ein Title</h1>
-					<p>Das ist eine Beschreibung</p>
-				</div>
-			</article>
-	
-		</section>
-		-->
-	</div>  
-
+			<h2>Full Stack Web Engineer</h2>
+			<p>	With ❤️ for clean APIs and elegance in code and design</p>
+			<nav>
+				<a href="mailto:paul.opitz@outlook.com"><img src="mail.png" alt=""></a>
+				<a href="https://github.com/perdix"><img src="github.png" alt=""></a>
+				<a href="https://www.linkedin.com/in/paul-opitz/"><img src="linkedin.png" alt=""></a>
+			</nav>
+			
+	</main>
 
 </body>
 </html>
+
+
+
+<script>
+	let wrapper = document.getElementById("wrapper");
+	let speed = 90;
+
+	for (let i=0; i<18; i++) {
+		let randomDelay = Math.floor(Math.random() * -10) * speed;
+		let randomSize = Math.floor(Math.random() * (40-10)) + 10;
+		let randomXShift = Math.floor(Math.random() * 80);
+		let randomYShift = Math.floor(Math.random() * 50);
+		let randomDuration = (Math.floor(Math.random() * (5-1)) + 1) * speed;
+
+		let object = document.createElement("div");
+		object.classList.add("object");
+		object.style.width = randomSize +"vw";
+		object.style.height = randomSize + "vw";
+		object.style.top = (-2 * randomSize + randomYShift) + "vh";
+		object.style.left = (-2 * randomSize + randomXShift) +"vw";
+  		if (Math.floor(Math.random() * 2)) {
+  			object.style.animationName = "updown";
+  		} else {
+  			object.style.animationName = "zigzag";
+  		}
+		object.style.animationDuration = randomDuration + "s";
+		object.style.animationTimingFunction = "ease-in-out";
+  		object.style.animationIterationCount = "infinite";
+  		object.style.animationDirection = "alternate";
+  		object.style.animationDelay = randomDelay + "s";
+
+  		// Make every second as circle
+  		//if (Math.floor(Math.random() * 2)) {
+  			object.style.borderRadius = "50%";
+  		//}
+  		// Make every second with different background
+  		if (Math.floor(Math.random() * 2)) {
+  			object.style.background = "linear-gradient(301deg, rgba(176,231,120,0.67) 4%, rgba(134,187,135,0.48) 88%)";
+  		} else {
+  			object.style.background = "linear-gradient(301deg, rgba(87,140,161,0.67) 4%, rgba(40,77,119,0.48) 88%)";
+  		}
+		wrapper.append(object);
+	}
+
+
+</script>

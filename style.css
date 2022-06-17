@@ -1,206 +1,144 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto+Slab:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
 
 :root {
-	--padding: 50px;
+	--animation-size:  10vw;
+}
+
+.object {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 2s;
+	animation-play-state: running;
+}
+
+.object:hover {
+  	animation-play-state: paused;
+}
+
+
+@keyframes zigzag {
+  0% {
+  	transform: translate(0vw, 0vh) rotate(10deg) scale(1.0);
+  }
+  25% {
+  	transform: translate(170vw, 40vh)  rotate(-32deg) scale(3.0);
+  }
+  50% {
+  	transform: translate(0vw, 60vw)  rotate(23deg) scale(0.8);
+  }
+  75% {
+  	transform: translate(170vw, 80vw)  rotate(370deg) scale(2.0);
+  }
+  100% {
+  	transform: translate(-10vw, 120vh)  rotate(23deg) scale(1.2);
+  }
+}
+
+@keyframes updown {
+  0% {
+  	transform: translate(0vw, 0vh) rotate(10deg) scale(1.0);
+  }
+  25% {
+  	transform: translate(50vw, 130vh)  rotate(33deg) scale(0.7);
+  }
+  50% {
+  	transform: translate(120vw, -20vw)  rotate(400deg) scale(2.8);
+  }
+  75% {
+  	transform: translate(40vw, 140vw)  rotate(-99deg) scale(1.2);
+  }
+  100% {
+  	transform: translate(130vw, -20vh)  rotate(12deg) scale(2.2);
+  }
 }
 
 
 body {
 	margin: 0;
-	font-family: "Lato";
-	color: white;
-}
-
-h1, h2 {
-	margin: 0;
-	font-family: "Roboto Slab";
-	margin: 0;
-}
-
-h1 {
-	margin-bottom: 20px;
-}
-h3 {
-	font-weight: 100;
-	font-size: 14px;
-	font-family: "Lato";
-	margin: 0;
-	text-transform: uppercase;
-}
-
-a {
-	color: white;
-}
-
-.material-icons-outlined {
-	vertical-align: text-top;
-	font-weight: 100;
-	font-size: 16px;
-	margin: 0px 5px;
-}
-
-
-.background {
-	position: fixed;
-	background-image: url("background.jpg");
-	background-position: center;
-	background-size: cover;
-	height: 100vh;
-	width: 100vw;
-	top: 0;
-	left: 0;
-}
-.foil {
-	background-color: rgba(0,0,0,0.7);
-	position: fixed;
-	height: 100vh;
-	width: 100vw;
-	top: 0;
-	left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .wrapper {
-	width: 100%;
-	margin: 0 auto;
-	max-width: 1200px;
-	overflow-x: hidden;
+	position: absolute;
+  
+  left: 0;
+  top: 0;
+  width: 100%;
 	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+	overflow-x: hidden;
+	overflow-y: hidden;
+
+
+}
+
+h1, h2, p {
+  margin: 0;
+  text-align: center;
 }
 
 main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	text-align: left;
-	min-height: 60vh;
-	position: relative;
+    background-color: rgba(255,255,255,0.0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    font-family: "Roboto";
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    height: 350px;
+    width: 350px;
 }
 
-main #news {
-	position: absolute;
-	bottom: var(--padding);
-	left: var(--padding);
+main h1 {
+  font-size: 40px;
+  font-family: "Roboto Slab";
 }
-main #info {
-	position: absolute;
-	right: var(--padding);
-	top: var(--padding);
-	font-weight: 100;
+
+main h2 {
+  font-size: 20px;
 }
-main #info-left {
-	position: absolute;
-	right: var(--padding);
-	top: calc(var(--padding) + 30px);
-	font-weight: 100;
+
+main p {
+  margin-top: 10px;
+  max-width: 300px;
 }
 
 
-main ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	width: 100%;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	gap: 15px;
-	margin-top: 30px;
-}
-main ul li a {
-	background-color: rgba(255, 255, 255, 0.2);
-	padding: 8px 15px;
-	border-radius: 20px;
-	color: white;
-	text-decoration: none;
-	text-transform: uppercase;
-}
+@media(min-width: 600px) {
+  main {
+    padding: 40px;
+    height: 400px;
+    width: 400px;
+  }
+  main h1 {
+    font-size: 50px;
+  }
 
-main ul li a:hover {
-	background-color: rgba(255, 255, 255, 0.3);
-}
+  main h2 {
+    font-size: 23px;
+  }
 
-#articles {
-	width: 100%;
-	margin: 0 auto;
-	max-width: 1200px;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	gap: 5px;
-	transform: rotate(0deg);
-}
-
-#articles article {
-	background-image: url("articles/pizza.jpg");
-	background-size: cover;
-	background-position: center;
-	min-height: 100px;
-}
-
-#articles article .text {
-	background-color: rgba(255, 255, 255, 0.3);
-	box-sizing: border-box;
-	padding: 30px;
-	width: 100%;
-	height: 100%;
+  main p {
+    margin-top: 10px;
+    max-width: 260px;
+  }
 }
 
 
 
-
-/**************** Pages **************************/
-
-
-/* Home */
-
-
-/* Course */
-#course {
-
+nav {
+  margin-top: 10px;
+  padding: 0px;
 }
-#course main {
-	min-height: 30vh;
+nav a img {
+  width: 30px;
+  margin: 4px;
 }
-
-#course ol {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#course ol li{
-	display: block;
-	margin: 2px 0;
-}
-
-
-#course ol li a{
-	background-color: rgba(255, 255, 255, 0.2);
-	border-radius: 20px;
-	color: white;
-	display: block;
-	text-decoration: none;
-	padding: 8px 15px;
-	text-transform: uppercase;
-}
-#course ol li a:hover{
-	background-color: rgba(255, 255, 255, 0.3);
-}
-
-
-#course #book {
-	width: 100%;
-	box-sizing: border-box;
-	text-align: justify;
-	margin: 0 auto;
-	max-width: 1200px;
-	position: relative;
-	padding: var(--padding);
-}
-
-
-/* Article */
